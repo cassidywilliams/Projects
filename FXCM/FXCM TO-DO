@@ -1,0 +1,30 @@
+FXCM TO-DO
+
+MLPClassifier is a multi-layer perceptron classifier
+MLP fit(X,y) method fits to data matrix X and target y
+the predict method requires X features to be passed in to predict Y
+%time is used inline to time processes
+accuracy_score is simply how many were correct/total
+return is the change between point x and point x+1
+predictions are simply -1/0/+1
+value_counts method simply counts number of occurences for each value
+if df is one column, you can call just df without adding df[col]
+log is used to scale variables
+
+
+determine best number of layers and iterations
+test model with different date ranges- do we need more or less data points?
+test prophet to predict- maybe a NN is less accurate
+
+
+
+% symbol in python- what does it do? (probably in RE library)
+need to do some pandas training
+dataframe resampling
+
+compare fees between FXCM and etoro: does it make sense to continue with etoro project?
+
+
+
+
+    

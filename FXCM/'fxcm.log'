@@ -1,0 +1,179 @@
+|ERROR|2018-09-22 19:33:00,951|Socket returns an error: HTTPSConnectionPool(host='api-demo.fxcm.com', port=443): Max retries exceeded with url: /socket.io/?access_token=f99fc7e77c2e1cdcb7c44380d29ac8fed31943df&agent=pythonquants&EIO=3&transport=polling&t=1537637580941-0 (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x0E3B4590>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed',)).
+|ERROR|2018-09-22 19:36:08,070|Socket returns an error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response',)).
+|ERROR|2018-09-22 19:36:18,541|Socket returns an error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response',)).
+|ERROR|2018-09-22 19:38:13,266|Socket returns an error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response',)).
+|ERROR|2018-09-22 23:22:15,095|Socket returns an error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response',)).
+|ERROR|2018-09-22 23:25:38,564|Socket returns an error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response',)).
+|ERROR|2018-09-23 12:04:57,744|Socket returns an error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response',)).
+|ERROR|2018-09-23 12:06:53,888|Socket returns an error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response',)).
+|ERROR|2018-09-23 12:08:35,651|Socket returns an error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response',)).
+|ERROR|2018-09-23 12:15:56,483|Socket returns an error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response',)).
+|ERROR|2018-09-23 19:26:50,502|Uncaught exception in ZMQStream callback
+Traceback (most recent call last):
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\zmq\eventloop\zmqstream.py", line 432, in _run_callback
+    callback(*args, **kwargs)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\tornado\stack_context.py", line 276, in null_wrapper
+    return fn(*args, **kwargs)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\ipykernel\kernelbase.py", line 283, in dispatcher
+    return self.dispatch_shell(stream, msg)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\ipykernel\kernelbase.py", line 233, in dispatch_shell
+    handler(stream, idents, msg)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\ipykernel\kernelbase.py", line 399, in execute_request
+    user_expressions, allow_stdin)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\ipykernel\ipkernel.py", line 208, in do_execute
+    res = shell.run_cell(code, store_history=store_history, silent=silent)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\ipykernel\zmqshell.py", line 537, in run_cell
+    return super(ZMQInteractiveShell, self).run_cell(*args, **kwargs)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\IPython\core\interactiveshell.py", line 2664, in run_cell
+    self.events.trigger('post_execute')
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\IPython\core\events.py", line 88, in trigger
+    func(*args, **kwargs)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\pyplot.py", line 149, in post_execute
+    draw_all()
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\_pylab_helpers.py", line 136, in draw_all
+    f_mgr.canvas.draw_idle()
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\backend_bases.py", line 2055, in draw_idle
+    self.draw(*args, **kwargs)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\backends\backend_agg.py", line 433, in draw
+    self.figure.draw(self.renderer)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\artist.py", line 55, in draw_wrapper
+    return draw(artist, renderer, *args, **kwargs)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\figure.py", line 1475, in draw
+    renderer, self, artists, self.suppressComposite)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\image.py", line 141, in _draw_list_compositing_images
+    a.draw(renderer)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\artist.py", line 55, in draw_wrapper
+    return draw(artist, renderer, *args, **kwargs)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\axes\_base.py", line 2607, in draw
+    mimage._draw_list_compositing_images(renderer, self, artists)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\image.py", line 141, in _draw_list_compositing_images
+    a.draw(renderer)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\artist.py", line 55, in draw_wrapper
+    return draw(artist, renderer, *args, **kwargs)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\axis.py", line 1190, in draw
+    ticks_to_draw = self._update_ticks(renderer)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\axis.py", line 1028, in _update_ticks
+    tick_tups = list(self.iter_ticks())  # iter_ticks calls the locator
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\axis.py", line 975, in iter_ticks
+    for i, val in enumerate(majorLocs)]
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\axis.py", line 975, in <listcomp>
+    for i, val in enumerate(majorLocs)]
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\category.py", line 154, in __call__
+    for k, v in self._units.items()}
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\category.py", line 154, in <dictcomp>
+    for k, v in self._units.items()}
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\site-packages\matplotlib\category.py", line 161, in _text
+    if LooseVersion(np.__version__) < LooseVersion('1.7.0'):
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\distutils\version.py", line 52, in __lt__
+    c = self._cmp(other)
+  File "c:\users\casswilliams\appdata\local\programs\python\python36-32\lib\distutils\version.py", line 337, in _cmp
+    if self.version < other.version:
+KeyboardInterrupt
+|ERROR|2018-09-24 18:48:28,937|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2018-09-24 18:48:29,001|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=10&from=1535760000&to=1537488000
+|ERROR|2018-09-24 18:48:29,001|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer U2-Ro64zc3hyv7c1AAGOf221428dc1f5720fccb5199e93bf49d21dc26d53', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2018-09-24 18:48:29,001|Params: {'num': 10, 'from': 1535760000, 'to': 1537488000}
+|ERROR|2018-09-24 18:48:29,001|Bearer token: Bearer U2-Ro64zc3hyv7c1AAGOf221428dc1f5720fccb5199e93bf49d21dc26d53
+|ERROR|2018-09-24 18:48:29,001|Connection status: established
+|ERROR|2018-09-24 18:48:29,001|Socket session id: U2-Ro64zc3hyv7c1AAGO
+|ERROR|2018-09-24 18:49:23,814|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2018-09-24 18:49:23,814|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=10&from=1534550400&to=1537228800
+|ERROR|2018-09-24 18:49:23,815|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer jAJ6xtUy65T0IjOfAAGPf221428dc1f5720fccb5199e93bf49d21dc26d53', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2018-09-24 18:49:23,815|Params: {'num': 10, 'from': 1534550400, 'to': 1537228800}
+|ERROR|2018-09-24 18:49:23,815|Bearer token: Bearer jAJ6xtUy65T0IjOfAAGPf221428dc1f5720fccb5199e93bf49d21dc26d53
+|ERROR|2018-09-24 18:49:23,815|Connection status: established
+|ERROR|2018-09-24 18:49:23,816|Socket session id: jAJ6xtUy65T0IjOfAAGP
+|ERROR|2018-09-24 18:50:32,237|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2018-09-24 18:50:32,237|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=10&from=1533081600&to=1535587200
+|ERROR|2018-09-24 18:50:32,238|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer ioTcqbEhzqSn-nvQAAGQf221428dc1f5720fccb5199e93bf49d21dc26d53', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2018-09-24 18:50:32,238|Params: {'num': 10, 'from': 1533081600, 'to': 1535587200}
+|ERROR|2018-09-24 18:50:32,238|Bearer token: Bearer ioTcqbEhzqSn-nvQAAGQf221428dc1f5720fccb5199e93bf49d21dc26d53
+|ERROR|2018-09-24 18:50:32,238|Connection status: established
+|ERROR|2018-09-24 18:50:32,238|Socket session id: ioTcqbEhzqSn-nvQAAGQ
+|ERROR|2018-09-24 18:53:16,579|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2018-09-24 18:53:16,580|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=10&from=1533081600&to=1535587200
+|ERROR|2018-09-24 18:53:16,580|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer NZZTqrE4Sw3aiL7LAAGSf221428dc1f5720fccb5199e93bf49d21dc26d53', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2018-09-24 18:53:16,580|Params: {'num': 10, 'from': 1533081600, 'to': 1535587200}
+|ERROR|2018-09-24 18:53:16,580|Bearer token: Bearer NZZTqrE4Sw3aiL7LAAGSf221428dc1f5720fccb5199e93bf49d21dc26d53
+|ERROR|2018-09-24 18:53:16,581|Connection status: established
+|ERROR|2018-09-24 18:53:16,581|Socket session id: NZZTqrE4Sw3aiL7LAAGS
+|ERROR|2018-09-24 18:56:01,237|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2018-09-24 18:56:01,237|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=10&from=1533081600&to=1535587200
+|ERROR|2018-09-24 18:56:01,238|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer IP50-Bewbi8v39nMAAGVf221428dc1f5720fccb5199e93bf49d21dc26d53', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2018-09-24 18:56:01,238|Params: {'num': 10, 'from': 1533081600, 'to': 1535587200}
+|ERROR|2018-09-24 18:56:01,238|Bearer token: Bearer IP50-Bewbi8v39nMAAGVf221428dc1f5720fccb5199e93bf49d21dc26d53
+|ERROR|2018-09-24 18:56:01,238|Connection status: established
+|ERROR|2018-09-24 18:56:01,238|Socket session id: IP50-Bewbi8v39nMAAGV
+|ERROR|2018-09-24 18:56:46,700|Error in get_candles: Illegal param. number: 50000
+|ERROR|2018-09-24 18:57:48,146|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2018-09-24 18:57:48,146|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=10&from=1533081600&to=1535587200
+|ERROR|2018-09-24 18:57:48,147|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer IP50-Bewbi8v39nMAAGVf221428dc1f5720fccb5199e93bf49d21dc26d53', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2018-09-24 18:57:48,147|Params: {'num': 10, 'from': 1533081600, 'to': 1535587200}
+|ERROR|2018-09-24 18:57:48,147|Bearer token: Bearer IP50-Bewbi8v39nMAAGVf221428dc1f5720fccb5199e93bf49d21dc26d53
+|ERROR|2018-09-24 18:57:48,147|Connection status: established
+|ERROR|2018-09-24 18:57:48,148|Socket session id: IP50-Bewbi8v39nMAAGV
+|ERROR|2018-09-24 19:00:18,987|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2018-09-24 19:00:18,987|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=10&from=1533081600&to=1535587200
+|ERROR|2018-09-24 19:00:18,988|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer 3AK1ADl0g4r2gPuxAAGaea5be89402400c477055ab4834e1820c09ce4d65', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2018-09-24 19:00:18,988|Params: {'num': 10, 'from': 1533081600, 'to': 1535587200}
+|ERROR|2018-09-24 19:00:18,988|Bearer token: Bearer 3AK1ADl0g4r2gPuxAAGaea5be89402400c477055ab4834e1820c09ce4d65
+|ERROR|2018-09-24 19:00:18,988|Connection status: established
+|ERROR|2018-09-24 19:00:18,988|Socket session id: 3AK1ADl0g4r2gPuxAAGa
+|ERROR|2018-09-24 19:04:08,777|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2018-09-24 19:04:08,778|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=10&from=1535760000&to=1537488000
+|ERROR|2018-09-24 19:04:08,778|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer PMbGgtm2EH6JPg1gAAGgea5be89402400c477055ab4834e1820c09ce4d65', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2018-09-24 19:04:08,778|Params: {'num': 10, 'from': 1535760000, 'to': 1537488000}
+|ERROR|2018-09-24 19:04:08,778|Bearer token: Bearer PMbGgtm2EH6JPg1gAAGgea5be89402400c477055ab4834e1820c09ce4d65
+|ERROR|2018-09-24 19:04:08,778|Connection status: established
+|ERROR|2018-09-24 19:04:08,778|Socket session id: PMbGgtm2EH6JPg1gAAGg
+|ERROR|2018-09-24 19:05:08,774|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2018-09-24 19:05:08,774|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=10&from=1535760000&to=1537488000
+|ERROR|2018-09-24 19:05:08,775|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer Q8hjIFYoxOzTva_vAAGnea5be89402400c477055ab4834e1820c09ce4d65', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2018-09-24 19:05:08,775|Params: {'num': 10, 'from': 1535760000, 'to': 1537488000}
+|ERROR|2018-09-24 19:05:08,775|Bearer token: Bearer Q8hjIFYoxOzTva_vAAGnea5be89402400c477055ab4834e1820c09ce4d65
+|ERROR|2018-09-24 19:05:08,775|Connection status: established
+|ERROR|2018-09-24 19:05:08,776|Socket session id: Q8hjIFYoxOzTva_vAAGn
+|ERROR|2018-09-24 19:06:33,253|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2018-09-24 19:06:33,254|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=10&from=1535760000&to=1538265600
+|ERROR|2018-09-24 19:06:33,254|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer 12Xe_HB2XZsUxOo4AAGqea5be89402400c477055ab4834e1820c09ce4d65', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2018-09-24 19:06:33,255|Params: {'num': 10, 'from': 1535760000, 'to': 1538265600}
+|ERROR|2018-09-24 19:06:33,255|Bearer token: Bearer 12Xe_HB2XZsUxOo4AAGqea5be89402400c477055ab4834e1820c09ce4d65
+|ERROR|2018-09-24 19:06:33,255|Connection status: established
+|ERROR|2018-09-24 19:06:33,255|Socket session id: 12Xe_HB2XZsUxOo4AAGq
+|ERROR|2018-09-24 19:06:42,978|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2018-09-24 19:06:42,978|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=10&from=1535760000&to=1537401600
+|ERROR|2018-09-24 19:06:42,978|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer 12Xe_HB2XZsUxOo4AAGqea5be89402400c477055ab4834e1820c09ce4d65', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2018-09-24 19:06:42,978|Params: {'num': 10, 'from': 1535760000, 'to': 1537401600}
+|ERROR|2018-09-24 19:06:42,978|Bearer token: Bearer 12Xe_HB2XZsUxOo4AAGqea5be89402400c477055ab4834e1820c09ce4d65
+|ERROR|2018-09-24 19:06:42,978|Connection status: established
+|ERROR|2018-09-24 19:06:42,978|Socket session id: 12Xe_HB2XZsUxOo4AAGq
+|ERROR|2018-09-25 19:40:12,388|Call of auto_trader raised an error:
+|ERROR|2018-09-25 19:40:12,453|<class 'KeyError'>
+|ERROR|2018-09-25 19:40:12,453|"['tradeId' 'amountK' 'currency' 'grossPL' 'isBuy' 'open' 'close' 'amountK'] not in index"
+|ERROR|2018-09-25 19:41:07,185|Call of auto_trader raised an error:
+|ERROR|2018-09-25 19:41:07,185|<class 'KeyError'>
+|ERROR|2018-09-25 19:41:07,185|"['tradeId' 'amountK' 'currency' 'grossPL' 'isBuy' 'open' 'close' 'amountK'] not in index"
+|ERROR|2018-09-25 19:42:21,690|Call of auto_trader raised an error:
+|ERROR|2018-09-25 19:42:21,690|<class 'KeyError'>
+|ERROR|2018-09-25 19:42:21,690|"['tradeId' 'amountK' 'currency' 'grossPL' 'isBuy' 'open' 'close' 'amountK'] not in index"
+|ERROR|2018-09-25 20:12:21,061|Call of auto_trader raised an error:
+|ERROR|2018-09-25 20:12:21,062|<class 'KeyError'>
+|ERROR|2018-09-25 20:12:21,062|"['tradeId' 'amountK' 'currency' 'grossPL' 'isBuy' 'open' 'close' 'amountK'] not in index"
+|ERROR|2018-09-25 20:14:13,617|Call of auto_trader raised an error:
+|ERROR|2018-09-25 20:14:13,618|<class 'KeyError'>
+|ERROR|2018-09-25 20:14:13,618|"['tradeId' 'amountK' 'currency' 'grossPL' 'isBuy' 'open' 'close' 'amountK'] not in index"
+|ERROR|2018-09-25 20:19:34,619|Call of auto_trader raised an error:
+|ERROR|2018-09-25 20:19:34,619|<class 'TypeError'>
+|ERROR|2018-09-25 20:19:34,620|object of type 'int' has no len()
+|ERROR|2018-09-25 20:22:22,615|Call of auto_trader raised an error:
+|ERROR|2018-09-25 20:22:22,615|<class 'ValueError'>
+|ERROR|2018-09-25 20:22:22,615|Unknown account id None.
+|ERROR|2018-09-25 20:26:41,578|Call of auto_trader raised an error:
+|ERROR|2018-09-25 20:26:41,579|<class 'ValueError'>
+|ERROR|2018-09-25 20:26:41,579|Unknown account id None.
+|ERROR|2018-09-25 20:48:41,088|Call of auto_trader raised an error:
+|ERROR|2018-09-25 20:48:41,088|<class 'ValueError'>
+|ERROR|2018-09-25 20:48:41,089|Unknown account id None.
+|ERROR|2018-09-25 21:16:24,573|Call of auto_trader raised an error:
+|ERROR|2018-09-25 21:16:24,573|<class 'NameError'>
+|ERROR|2018-09-25 21:16:24,574|name 'PL' is not defined
