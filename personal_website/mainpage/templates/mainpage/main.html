@@ -1,0 +1,296 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109064262-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-109064262-1');
+	</script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Portfolio webpage">
+	<meta name="author" content="Cassidy Williams">
+
+	<link type="text/css" href="https://fonts.googleapis.com/css?family=Comfortaa|Montserrat|Raleway" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+
+	<link rel="shortcut icon" href="{% static 'mainpage/images/logo.ico' %}" />
+	<title>CASSIDY WILLIAMS</title>
+
+	<!-- CSS -->
+	<link href="{% static 'mainpage/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+	<link href="{% static 'mainpage/css/font-awesome.min.css' %}" rel="stylesheet" media="screen">
+	<link href="{% static 'mainpage/css/animate.css" rel="stylesheet' %}">
+
+	<!-- Custom styles CSS -->
+	<link href="{% static 'mainpage/css/style.css' %}" rel="stylesheet" media="screen">
+
+    <script src="{% static 'mainpage/js/modernizr.custom.js' %}"></script>
+
+</head>
+<body>
+
+	<!-- Preloader -->
+
+	<div id="preloader">
+		<div id="status"></div>
+	</div>
+
+	<!-- Home start -->
+
+		<section id="home" class="pfblock-image screen-height">
+    <div class="home-overlay"></div>
+			<div class="intro">
+				<div class="start">I'm Cassidy Williams and I'm a</div>
+				<h1>data scientist</h1>
+				<div class="start">answering your business questions with data</div>
+			</div>
+
+			<a href="#services">
+				<div class="scroll-down">
+					<span>
+						<i class="fa fa-angle-down fa-2x"></i>
+					</span>
+				</div>
+			</a>
+		</section>
+
+	<!-- Home end -->
+
+	<!-- Navigation start -->
+
+	<header class="header">
+
+		<nav class="navbar navbar-custom" role="navigation">
+
+			<div class="container">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html">CASSIDY WILLIAMS</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="custom-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#home">Home</a></li>
+						<li><a href="#services">About me</a></li>
+            			<li><a href="#portfolio">Projects</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</div>
+
+			</div><!-- .container -->
+
+		</nav>
+
+	</header>
+
+	<!-- Navigation end -->
+
+
+  <!-- Services start -->
+
+	<section id="services" class="pfblock pfblock-gray">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-8">
+
+					<div class="pfblock-header wow fadeInUp">
+						<h2 class="pfblock-title">ABOUT ME</h2>
+						<div class="pfblock-line"></div>
+						<div class="pfblock-subtitle">
+							<p>The power of the human mind is one of the greatest forces on this planet. Therefore, I believe with true focus and determination, you can achieve anything you put your mind to. </p>
+							<p>Data is what I'm focused on. Whether getting my hands dirty building prediction models, analyzing large data sets, or just automating the boring daily tasks, I love it. There is something about the feeling that a passion of yours brings to your life. </p>
+							<p>It's not just satisfying, <i>it's exhilarating.</i></p><br>
+							
+ 						<!-- 	<a href="#" target="_blank" id="resume-effect"><i class="fa fa-3x fa-file-text-o" aria-hidden="true"></i> Click to view my resume.</a> -->
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-4">
+					<div class="pfblock-header wow fadeInUp">
+						<img id="myphoto" src="{% static 'mainpage/images/me.jpg' %}" alt="Cassidy Williams" style="border-radius: 100%;filter:grayscale(30%);">
+					</div>
+				</div>
+		</div><!-- .container -->
+
+		<div class="skills col-xs-12">
+				<h2 class="pfblock-title">MY TOOLKIT</h2>
+				<div class="pfblock-line"></div>
+
+				<div class="row">
+						<div  class="devicon-python-plain  col-xs-15"><span>PYTHON</span></div>
+						<div  class="devicon-django-plain  col-xs-15"><span>DJANGO</span></div>
+						<div class="devicon-github-plain col-xs-15"><span>GITHUB</span></div>
+						<div class="devicon-postgresql-plain col-xs-15"><span>POSTGRESQL</span></div>
+						<div class="devicon-jetbrains-plain col-xs-15"><span>PYCHARM</span></div>
+						
+				</div>
+				
+		</div>
+	</section>
+
+	<!-- Services end -->
+
+
+	<!-- Portfolio start -->
+
+	<section id="portfolio" class="pfblock">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<div class="pfblock-header wow fadeInUp">
+						<h2 class="pfblock-title">Projects</h2>
+						<div class="pfblock-line"></div>
+						<div class="pfblock-subtitle">
+
+						</div>
+					</div>
+
+				</div>
+
+			</div><!-- .row -->
+
+			<div class="row">
+				{% for project in list_projects|slice:":2" %}
+					<div class="card col-xs-12 col-sm-5 col-md-5">
+							<div class="grid wow zoomIn">
+
+								<figure class="effect-bubba"><a href="{{ project.url }}" target="_blank">
+									{% with 'mainpage/images/'|add:project.img_name as image_static %}
+											<img class="card-img-top" src="{% static image_static %}"></a>
+									{% endwith %}
+								</figure>
+
+								<div class="card-block">
+									<h2 class="card-title">{{ project.title }}</h2>
+									<p class="card-text">{{ project.description }}</p>
+									<div class="tools">
+										{% for tool in project.tools.split %}
+											<span>{{ tool }}</span>
+										{% endfor %}
+									</div>
+								</div>
+
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+		</div><!-- .container -->
+
+	</section>
+
+	<!-- Portfolio end -->
+
+
+	<!-- CallToAction start -->
+
+	<section class="calltoaction">
+		<div class="container-fluid">
+
+			<div class="row">
+
+				<div class="col-md-12 col-lg-12">
+					<h2 class="wow slideInRight" data-wow-delay=".1s">DO YOU LIKE WHAT I HAVE TO OFFER?</h2>
+				</div>
+
+				<div class="col-md-12 col-lg-12 calltoaction-btn wow slideInRight" data-wow-delay=".3s">
+					<a href="#contact" class="btn btn-lg">Get in touch</a>
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</section>
+
+	<!-- CallToAction end -->
+
+
+	<!-- Contact start -->
+
+	<section id="contact" class="pfblock">
+		<div class="row">
+
+			<div class="col-sm-6 col-sm-offset-3">
+
+				<div class="pfblock-header">
+					<h2 class="pfblock-title">Contact</h2>
+					<div class="pfblock-line"></div>
+					<div class="pfblock-subtitle-center">
+						I'd love to speak with you regarding your project or one of mine. Feel free to write me a few words below.
+					</div>
+				</div>
+
+			</div>
+
+		</div><!-- .row -->
+
+		<div class="row">
+
+			<div class="col-sm-6 col-sm-offset-3">
+				{% include 'mainpage/contact_form.html' %}
+			</div><!-- .row -->
+
+		</div><!-- .container -->
+	</section>
+
+	<!-- Contact end -->
+
+	<!-- Footer start -->
+
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-12">
+
+					<ul class="social-links">
+						<li><a href="https://www.linkedin.com/in/cassidywilliams/" class="wow fadeInUp" data-wow-delay=".1s" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#" class="wow fadeInUp" data-wow-delay=".2s" target="_blank"><i class="fa fa-github"></i></a></li>
+						<li><a href="mailto:casswllms@gmail.com" class="wow fadeInUp" data-wow-delay=".4s"><i class="fa fa-envelope"></i></a></li>
+						<li><a href="live:casswllms" class="wow fadeInUp" data-wow-delay=".5s" target="_blank"><i class="fa fa fa-skype"></i></a></li>
+					</ul>
+
+					<p class="copyright"> Feel free to email me, or visit my GitHub and LinkedIn pages.</p>
+
+					<p class="heart">Made with Python and Django 2018 ©</p>
+
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</footer>
+
+	<!-- Footer end -->
+
+
+	<!-- Javascript files -->
+
+	<script src="{% static 'mainpage/js/jquery-1.11.1.min.js' %}"></script>
+	<script src="{% static 'mainpage/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'mainpage/js/jquery.parallax-1.1.3.js' %}"></script>
+	<script src="{% static 'mainpage/js/imagesloaded.pkgd.js' %}"></script>
+	<script src="{% static 'mainpage/js/jquery.sticky.js' %}"></script>
+	<script src="{% static 'mainpage/js/smoothscroll.js' %}"></script>
+	<script src="{% static 'mainpage/js/wow.min.js' %}"></script>
+  <script src="{% static 'mainpage/js/waypoints.min.js' %}"></script>
+  <script src="{% static 'mainpage/js/jquery.cbpQTRotator.js' %}"></script>
+	<script src="{% static 'mainpage/js/custom.js' %}"></script>
+
+</body>
+</html>

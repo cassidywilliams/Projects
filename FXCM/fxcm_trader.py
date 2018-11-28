@@ -8,9 +8,10 @@ import fxcmpy
 from sklearn.svm import SVC
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score
+from sklearn.linear_model import LinearRegression
 
 #define number of lags to test for features. if this is the method determined to work best, add a loop to automate select number of lags
-lags = 15
+lags = 10
 symbol = 'EUR/USD'
 
 api = fxcmpy.fxcmpy(config_file='fxcm.cfg')
@@ -34,17 +35,13 @@ data.head()
 
 #create list of lags, add column for each to data df and for each value with -1/0/+1
 #The sign function returns -1 if x < 0, 0 if x==0, 1 if x > 0. nan is returned for nan inputs.
-# cols = []
-# for lag in range(1, lags + 1):
-#     col = 'lag_{}'.format(lag)
-#     data[col] = np.sign(data['returns'].shift(lag))
-#     cols.append(col)
 
-# data.head(8)
 #-----------------------------------------------------------------------------------
+#MLP classification model
 model = MLPClassifier(hidden_layer_sizes=[200, 200], max_iter=200)
 def lagger():
     
+    global cols, scores
     lag_counts = range(1, lags + 1)
     cols = []
     scores = []
@@ -71,9 +68,46 @@ def lagger():
 
 lagger()
 #---------------------------------------------------------------------------------------
-#what did he add this for?
+#MORE FEATURES
+cols.append('rolling mean 3')
+cols.append('rolling mean 6')
+cols.append('rolling mean 12')
+cols.append('rolling std 12')
+cols.append('rolling std 5')
+cols.append('rolling min 5')
+cols.append('rolling max 5')
+cols.append('rolling median 12')
+
+data['rolling mean 3'] = data['midclose'].rolling(3).mean()
+data['rolling mean 6'] = data['midclose'].rolling(6).mean()
+data['rolling mean 12'] = data['midclose'].rolling(12).mean()
+data['rolling std 12'] = data['midclose'].rolling(12).std()
+data['rolling std 5'] = data['midclose'].rolling(5).std()
+data['rolling min 5'] = data['midclose'].rolling(5).min()
+data['rolling max 5'] = data['midclose'].rolling(5).max()
+data['rolling median 12'] = data['midclose'].rolling(12).median()
+
+
+#linear regression model
+cols = []
+for lag in range(1, lags + 1):
+     col = 'lag_{}'.format(lag)
+     data[col] = np.sign(data['returns'].shift(lag))
+     cols.append(col)
+data.dropna(inplace=True)
+reg = LinearRegression()
+%time reg.fit(data[cols], np.sign(data['returns']))
+reg.predict(data[cols])
+data['prediction'] = np.sign(reg.predict(data[cols]))
+score = accuracy_score(data['prediction'], np.sign(data['returns']))
+
+
+
+#accuracy_score(data['prediction'], np.sign(data['returns']))
+#---------------------------------------------------------------------------------------
+#what is this for?
 # #2 ** lags
-# data.dropna(inplace=True)
+
 
 # # Strategy
 # uses NN MLP classifier- test prophet here. if MLP is used, how many layers and iterations are needed?
@@ -101,37 +135,39 @@ lagger()
 # data[['returns', 'strategy']].cumsum().apply(np.exp).plot(figsize=(10, 6))
 
 #real backtesting
-def backtest():
+def backtest(model):
     global test_data, end_result
-    raw_test = api.get_candles(symbol, period='m1', start='2018-09-25', end='2018-09-26')
+    raw_test = api.get_candles(symbol, period='m1', start='2018-09-25', end='2018-09-27')
     test_data = pd.DataFrame()
     test_data['midclose'] = (raw_test['bidclose'] + raw_test['askclose']) / 2
     test_data['returns'] = np.log(test_data / test_data.shift(1))
     scores = []
+    move = 1
     for col in cols:
-        test_data[col] = np.sign(test_data['returns'].shift(lag))
+        move += 1
+        test_data[col] = np.sign(test_data['returns'].shift(move))
         test_data.dropna(inplace=True)
     test_data['prediction'] = model.predict(test_data[cols])
-    test_data['strategy'] = test_data['prediction'] * test_data['returns']
+    test_data['strategy'] = np.sign(test_data['prediction']) * test_data['returns']
     np.exp(test_data[['returns', 'strategy']].sum())
     end_result = pd.DataFrame(test_data[['returns', 'strategy']].cumsum().apply(np.exp))
     test_data[['returns', 'strategy']].cumsum().apply(np.exp).plot(figsize=(10, 6))
     
-
-backtest()
+    
+backtest(reg)
 
 # Automated Trading
 
 # def output(data, dataframe):
 #     print('%3d | %s | %s | %6.5f, %6.5f' 
-#           % (len(dataframe), data['Symbol'],
-#              pd.to_datetime(int(data['Updated']), unit='ms'), 
-#              data['Rates'][0], data['Rates'][1]))
-
-# #this uses output as a callback function so it passes the market data into the output function
-# api.subscribe_market_data('EUR/USD', (output,))
-
-# api.unsubscribe_market_data('EUR/USD') 
+#       % (len(dataframe), data['Symbol'],
+#          pd.to_datetime(int(data['Updated']), unit='ms'), 
+#          data['Rates'][0], data['Rates'][1]))
+#
+## #this uses output as a callback function so it passes the market data into the output function
+#api.subscribe_market_data('EUR/USD', (output,))
+#
+#api.unsubscribe_market_data('EUR/USD') 
 
 specs = ['tradeId', 'amountK', 'currency',
        'grossPL', 'isBuy', 'open', 'close', 'amountK']
@@ -191,7 +227,10 @@ def auto_trader(data, dataframe):
                 position = -1
                 print('{} | ***PLACING SELL ORDER***'.format(dt.datetime.now()))
                     #open_pos = api.get_open_positions()[specs]
-    
+ 
+        if ticks > 100:
+            pass
+        
     # else:
     #     for index, row in open_pos.iterrows():
     #         if row[4] == True and row[3]> PL:
@@ -213,8 +252,7 @@ def auto_trader(data, dataframe):
     #             print('Position is above threshold of {}, trade closed at {} gain.'.format(threshold,(row[5]/row[6] - 1)))
     #             open_pos = api.get_open_positions()[specs]
         
-        if ticks > 100:
-            pass
+
         
 api.subscribe_market_data('EUR/USD', (auto_trader,))
 
@@ -224,3 +262,59 @@ api.unsubscribe_market_data('EUR/USD')
 api.close_all()
 
 api.get_open_positions()
+
+#---------------------------------------------------------------------------------------------
+#TESTING LINEAR REGRESSION MODEL HERE
+
+threshold = 0.0005
+position = 0
+trades = 0
+ticks = 0
+min_length = lags + 1
+max_open_pos = 5
+PL = .1
+
+def auto_trader(data, dataframe):
+    global position, trades, ticks, min_length, threshold, open_pos, specs, resam, features
+    ticks += 1
+    #end by default is /n, but can change the ending behaviour of a print statement
+    print(ticks, end=' ')
+    #this is a resample of the response passed into the auto_trader function. it resamples every 10s.
+    resam = dataframe.resample('15s', label='right').last().ffill()
+    try:
+         open_pos = api.get_open_positions()[specs]
+    except:
+         open_pos = [0]
+        
+blah = np.sign(reg.predict(features))
+#    if len(open_pos) < max_open_pos:
+    if len(resam) > min_length:
+        min_length += 1
+        resam['mid'] = (resam['Bid'] + resam['Ask']) / 2
+        resam['returns'] = np.log(resam['mid'] / resam['mid'].shift(1))
+        features = np.sign(resam['returns'].iloc[-(lags+1):-1])
+        features = features.values.reshape(1, -1)
+        signal = np.sign(reg.predict(features))
+        print('\nNEW SIGNAL: {}'.format(signal))
+        
+        if position in [0, -1]:
+            if signal == 1:
+                if position == -1:
+                    api.close_all_for_symbol(symbol)
+                api.create_market_buy_order(symbol, 1)
+                trades += 1
+                position = 1
+                print('{} | ***PLACING BUY ORDER***'.format(dt.datetime.now()))
+                    #open_pos = api.get_open_positions()[specs]
+        elif position in [0, 1]:
+            if signal == -1:
+                if position == 1:
+                    api.close_all_for_symbol(symbol)
+                api.create_market_sell_order(symbol, 1)
+                position = -1
+                trades += 1
+                print('{} | ***PLACING SELL ORDER***'.format(dt.datetime.now()))
+                    #open_pos = api.get_open_positions()[specs]
+ 
+        if ticks > 100:
+            pass

@@ -177,3 +177,29 @@ KeyboardInterrupt
 |ERROR|2018-09-25 21:16:24,573|Call of auto_trader raised an error:
 |ERROR|2018-09-25 21:16:24,573|<class 'NameError'>
 |ERROR|2018-09-25 21:16:24,574|name 'PL' is not defined
+|ERROR|2018-09-26 21:50:14,714|Call of auto_trader raised an error:
+|ERROR|2018-09-26 21:50:14,715|<class 'NameError'>
+|ERROR|2018-09-26 21:50:14,715|name 'ticks' is not defined
+|ERROR|2018-09-26 21:54:27,146|Unknown instrument: EUR/USD
+|ERROR|2018-09-26 21:54:34,044|Unknown instrument: EUR/USD
+|ERROR|2018-10-01 19:27:10,375|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2018-10-01 19:27:10,378|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=10&from=1535760000&to=1538265600
+|ERROR|2018-10-01 19:27:10,378|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer tarZKeF3_VtfE_ORADJn767304ce285682e8a1a7af07bc902f870575c71a', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2018-10-01 19:27:10,378|Params: {'num': 10, 'from': 1535760000, 'to': 1538265600}
+|ERROR|2018-10-01 19:27:10,379|Bearer token: Bearer tarZKeF3_VtfE_ORADJn767304ce285682e8a1a7af07bc902f870575c71a
+|ERROR|2018-10-01 19:27:10,379|Connection status: established
+|ERROR|2018-10-01 19:27:10,379|Socket session id: tarZKeF3_VtfE_ORADJn
+|ERROR|2018-10-09 21:21:32,822|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2018-10-09 21:21:32,828|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=10&from=1538956800&to=1538352000
+|ERROR|2018-10-09 21:21:32,828|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer wx_x13dPbZD_7qIpAAC9767304ce285682e8a1a7af07bc902f870575c71a', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2018-10-09 21:21:32,828|Params: {'num': 10, 'from': 1538956800, 'to': 1538352000}
+|ERROR|2018-10-09 21:21:32,828|Bearer token: Bearer wx_x13dPbZD_7qIpAAC9767304ce285682e8a1a7af07bc902f870575c71a
+|ERROR|2018-10-09 21:21:32,828|Connection status: established
+|ERROR|2018-10-09 21:21:32,828|Socket session id: wx_x13dPbZD_7qIpAAC9
+|ERROR|2018-10-09 21:23:07,791|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2018-10-09 21:23:07,792|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=10&from=1538956800&to=1538352000
+|ERROR|2018-10-09 21:23:07,792|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer zGcr4-IdUXSneWvGAADA767304ce285682e8a1a7af07bc902f870575c71a', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2018-10-09 21:23:07,792|Params: {'num': 10, 'from': 1538956800, 'to': 1538352000}
+|ERROR|2018-10-09 21:23:07,792|Bearer token: Bearer zGcr4-IdUXSneWvGAADA767304ce285682e8a1a7af07bc902f870575c71a
+|ERROR|2018-10-09 21:23:07,792|Connection status: established
+|ERROR|2018-10-09 21:23:07,792|Socket session id: zGcr4-IdUXSneWvGAADA
