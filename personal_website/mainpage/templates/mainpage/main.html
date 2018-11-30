@@ -4,13 +4,13 @@
 <html lang="en">
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109064262-1"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
 
-		gtag('config', 'UA-109064262-1');
+		gtag('config', '');
 	</script>
 
 	<meta charset="UTF-8">
@@ -168,30 +168,29 @@
 			</div><!-- .row -->
 
 			<div class="row">
-				{% for project in list_projects|slice:":2" %}
-					<div class="card col-xs-12 col-sm-5 col-md-5">
-							<div class="grid wow zoomIn">
+				{% for project in list_projects|slice:":3" %}
+					<div class="card col-xs-10 col-sm-10 col-md-5 h-100">
+						<div class="grid wow zoomIn">
 
-								<figure class="effect-bubba"><a href="{{ project.url }}" target="_blank">
-									{% with 'mainpage/images/'|add:project.img_name as image_static %}
-											<img class="card-img-top" src="{% static image_static %}"></a>
-									{% endwith %}
-								</figure>
+							<figure class="effect-bubba"><a href="{{ project.url }}" target="_blank">
+								{% with 'mainpage/images/'|add:project.img_name as image_static %}
+										<img class="card-img-top" src="{% static image_static %}"></a>
+								{% endwith %}
+							</figure>
 
-								<div class="card-block">
-									<h2 class="card-title">{{ project.title }}</h2>
-									<p class="card-text">{{ project.description }}</p>
-									<div class="tools">
-										{% for tool in project.tools.split %}
-											<span>{{ tool }}</span>
-										{% endfor %}
-									</div>
+							<div class="card-block">
+								<h2 class="card-title">{{ project.title }}</h2>
+								<!-- <p class="card-text">{{ project.description }}</p> -->
+								<div class="tools">
+									{% for tool in project.tools.split %}
+										<span>{{ tool }}</span>
+									{% endfor %}
 								</div>
-
 							</div>
 						</div>
-					{% endfor %}
-				</div>
+					</div>
+				{% endfor %}
+			</div>
 		</div><!-- .container -->
 
 	</section>
@@ -263,7 +262,6 @@
 						<li><a href="https://www.linkedin.com/in/cassidywilliams/" class="wow fadeInUp" data-wow-delay=".1s" target="_blank"><i class="fa fa-linkedin"></i></a></li>
 						<li><a href="#" class="wow fadeInUp" data-wow-delay=".2s" target="_blank"><i class="fa fa-github"></i></a></li>
 						<li><a href="mailto:casswllms@gmail.com" class="wow fadeInUp" data-wow-delay=".4s"><i class="fa fa-envelope"></i></a></li>
-						<li><a href="live:casswllms" class="wow fadeInUp" data-wow-delay=".5s" target="_blank"><i class="fa fa fa-skype"></i></a></li>
 					</ul>
 
 					<p class="copyright"> Feel free to email me, or visit my GitHub and LinkedIn pages.</p>

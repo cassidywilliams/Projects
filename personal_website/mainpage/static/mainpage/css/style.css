@@ -718,10 +718,15 @@ div[class^="devicon"] span{
 
 .card {
 	padding: 0px 10px 0px 5px;
-	margin: 10px 30px 10px;
+	margin: 10px 50px 10px 45px;
 	border: 1px solid lightgray;
-}
 
+}
+.card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
 .card-text {
 	height: 100px;
 	overflow: auto;
