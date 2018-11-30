@@ -168,11 +168,11 @@
 			</div><!-- .row -->
 
 			<div class="row">
-				{% for project in list_projects|slice:":3" %}
+				{% for project in list_projects|slice:":2" %}
 					<div class="card col-xs-10 col-sm-10 col-md-5 h-100">
 						<div class="grid wow zoomIn">
 
-							<figure class="effect-bubba"><a href="{{ project.url }}" target="_blank">
+							<figure class="effect-bubba"><a data-toggle="collapse" data-target=#{{ project.id }}>
 								{% with 'mainpage/images/'|add:project.img_name as image_static %}
 										<img class="card-img-top" src="{% static image_static %}"></a>
 								{% endwith %}
@@ -180,6 +180,10 @@
 
 							<div class="card-block">
 								<h2 class="card-title">{{ project.title }}</h2>
+								  <div id={{ project.id }} class="collapse" aria-expanded="false">
+								    {{ project.description }}
+								  </div>
+								  <br>
 								<!-- <p class="card-text">{{ project.description }}</p> -->
 								<div class="tools">
 									{% for tool in project.tools.split %}
@@ -216,9 +220,7 @@
 			</div><!-- .row -->
 		</div><!-- .container -->
 	</section>
-
 	<!-- CallToAction end -->
-
 
 	<!-- Contact start -->
 
