@@ -49,10 +49,22 @@
     <div class="home-overlay"></div>
 			<div class="intro">
 				<div class="start">I'm Cassidy Williams and I'm a</div>
-				<h1>data scientist</h1>
+				<h1>
+				<div class="Iam">
+					<p>Data</p>
+					<b>
+					  <div class="innerIam">
+					    aficionado<br /> 
+					    wrangler<br />
+					    automator<br />
+					    modeler<br />
+					    story teller
+					    </div>
+					</b>
+				</div>
+					</h1>
 				<div class="start">answering your business questions with data</div>
 			</div>
-
 			<a href="#services">
 				<div class="scroll-down">
 					<span>
@@ -79,7 +91,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.html">CASSIDY WILLIAMS</a>
+					<a class="navbar-brand" href="#home">CASSIDY WILLIAMS</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="custom-collapse">
@@ -168,7 +180,7 @@
 			</div><!-- .row -->
 
 			<div class="row">
-				{% for project in list_projects|slice:":2" %}
+				{% for project in list_projects|slice:"1:3" %}
 					<div class="card col-xs-10 col-sm-10 col-md-5 h-100">
 						<div class="grid wow zoomIn">
 
@@ -266,7 +278,7 @@
 						<li><a href="mailto:casswllms@gmail.com" class="wow fadeInUp" data-wow-delay=".4s"><i class="fa fa-envelope"></i></a></li>
 					</ul>
 
-					<p class="copyright"> Feel free to email me, or visit my GitHub and LinkedIn pages.</p>
+					<p class="copyright"> Feel free to email me or visit my GitHub and LinkedIn pages.</p>
 
 					<p class="heart">Made with Python and Django 2018 ©</p>
 
