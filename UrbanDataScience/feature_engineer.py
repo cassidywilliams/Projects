@@ -118,7 +118,7 @@ def profanity(string):
         None
 
 
-def feature_fab(df, auth_dict, date_dict, tag_data, scrape_date):
+def feature_fab(df, auth_dict, date_dict, tag_data, words_of_the_day, scrape_date):
     
     df['def_length'] = df['top_def'].apply(lambda x: len_except(x))
     df['example_length'] = df['example'].apply(lambda x: len_except(x))  
@@ -131,21 +131,24 @@ def feature_fab(df, auth_dict, date_dict, tag_data, scrape_date):
     df['total_tag_usage_rate'] = df['tag_list'].apply(lambda x: tag_usage_rate_calc(x, tag_data))
     df['total_interactions'] = df['upvotes'] + df['downvotes']
     df['interaction_polarity'] = (df['upvotes'] - df['downvotes'])/df['total_interactions']
+    df['days_featured'] = df['word'].map(dict(zip(words_of_the_day.word, words_of_the_day.days_featured)))
     
     return df
 
 if __name__ == "__main__":
     scrape_date = datetime.strptime('2019-05-01', '%Y-%m-%d')
     data = pd.read_csv('master_data.csv')
+    words_of_the_day = pd.read_csv('word_of_the_day.csv')
+    
     data.rename(columns = {'Unnamed: 0':'word'}, inplace=True)
     data.dropna(subset=['author'], inplace=True)
-    data = data[:10000]
+    #data = data[:10000]
     data = tag_prep(data)
     auth_dict = posts_by_auth(data)
     date_dict = posts_by_date(data)
     tag_data = create_tag_db(data)
-    data = feature_fab(data, auth_dict, date_dict, tag_data, scrape_date)
-    #data.to_csv('featured_data.csv')
+    data = feature_fab(data, auth_dict, date_dict, tag_data, words_of_the_day, scrape_date)
+    data.to_csv('engineered_data.csv', index=False)
 
 #---------------------------------------------
 
@@ -153,4 +156,3 @@ if __name__ == "__main__":
 #date_data = pd.DataFrame.from_dict(date_dict, orient='index', columns=['uses'])
 #date_data.sort_index(axis=0,  ascending=True, inplace=True)
 #date_data.plot()
-
