@@ -5,6 +5,9 @@ from datetime import datetime
    
 
 def get_words_and_dates(last_page):
+    
+    '''Collects featured words and the post date for each.'''
+    
     words = []
     dates = []
     pages = []
@@ -24,12 +27,18 @@ def get_words_and_dates(last_page):
     return df
 
 def date_convert(str_month_day, int_year):
+    
+    '''Converts date component strings to datetime object.'''
+    
     date = str_month_day + " " + str(int_year)
     
     return datetime.strptime(date.strip(), '%b %d %Y')
 
 
 def date_creator(df):
+    
+    '''Calculates date column and number of days featured.'''
+    
     df['date_shifted'] = df['date'].shift()  
     df['est_year'] = None
     df['est_year'][0] = 2019    

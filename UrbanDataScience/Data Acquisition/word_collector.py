@@ -7,6 +7,8 @@ from selenium.webdriver.chrome.options import Options
 
 def get_page_counts():
     
+    '''Gets the number of pages for each letter.'''
+    
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     browser = webdriver.Chrome(chrome_options=chrome_options)
@@ -21,6 +23,9 @@ def get_page_counts():
     
 
 def get_words_and_links(last_pages):
+    
+    '''Collects each word and the link to its page.'''
+    
     words_and_links = {}
     for letter in last_pages:
         for page in range(1, last_pages[letter]+1):

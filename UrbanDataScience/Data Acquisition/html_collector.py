@@ -5,14 +5,14 @@ import traceback
 from itertools import islice
 import pickle
 
-
+# Open pickle file containing all words and links.
 try:
     words_and_links
 except NameError:  
     words_and_links = pickle.load(open('words_and_links.pickle','rb')) 
 
 
-# multi-threading functions
+# Multi-threading functions
 async def get_html(session, word, url):
     async with session.get(f'https://www.urbandictionary.com{url}', ssl=False) as response:
         return word, await response.text()
@@ -24,8 +24,10 @@ async def fetch_all(url_dict, loop):
         return dict(results)
 
 
-# break large dict of words and links into list of dicts for easier consumption
 def chunks(data, chunk_size=10000):
+    
+    '''Break large dict of words and links into list of dicts for easier consumption.'''
+    
     it = iter(data)
     for i in range(0, len(data), chunk_size):
         yield {k:data[k] for k in islice(it, chunk_size)}
