@@ -6,7 +6,7 @@ The purpose of this project was to collect, analyze, and model the 1.9 million w
 
 * **Data Acquisition:** The data was acquired by use of an asynchronous web scraper that I built to collect the HTML for all 1.9 million words. The data is pickled into chunks of 15,000 words, as a measure to avoid memory errors, as this was ran on a local machine. The asynchronous scraper reduced data collection time from over 130 hours to under three.
 
-* **Data Parsing and Cleaning:** Once the HTML data was stored in a collection of pickle files, each one was parsed to strip out only the information necessary for this project, which includes: word, definition , author, post date, and hashtags. The parsed data is then combined into one .csv to easily open and manipulate. Rows with strange values and nulls are removed.
+* **Data Parsing and Cleaning:** Once the HTML data was stored in a collection of pickle files, each one was parsed to strip out only the information necessary for this project, which includes: word, definition, author, post date, hashtags and other metadata. The parsed data is then combined into one .csv to easily open and manipulate. Rows with strange values and nulls are removed.
 
 * **Feature Engineering:** In order to begin modeling the data, I created several features that could be useful in understanding relationships between variables and to ultimate answer the question of what makes one word more popular than another. Some features that were explored:
   * Length of definition
