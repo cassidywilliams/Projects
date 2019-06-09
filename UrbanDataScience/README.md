@@ -1,7 +1,5 @@
 # UrbanDataScience
 
-The purpose of this project was analyze the words on urbandictionary.com to understand the relationships between words, as well as what leads some words to be more popular than others. This required the development of an asynchronous web scraper to collect the data, which was then later analyzed and modeled.
-
 The purpose of this project was to collect, analyze, and model the 1.9 million words found on [Urban Dictionary](https://www.urbandictionary.com/). This project contains several distinct components:
 
 * **Data Acquisition:** The data was acquired by use of an asynchronous web scraper that I built to collect the HTML for all 1.9 million words. The data is pickled into chunks of 15,000 words, as a measure to avoid memory errors, as this was ran on a local machine. The asynchronous scraper reduced data collection time from over 130 hours to under three.
