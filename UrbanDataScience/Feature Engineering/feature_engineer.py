@@ -157,7 +157,7 @@ def binary_contains(test, string):
 
 def feature_fab(df, auth_dict, date_dict, tag_data, words_of_the_day, scrape_date):
     
-    """This function creates many of the features columns."""
+    'This function creates many of the features columns.'
     
     df['def_length'] = df['top_def'].apply(lambda x: len_except(x))
     df['example_length'] = df['example'].apply(lambda x: len_except(x))  
