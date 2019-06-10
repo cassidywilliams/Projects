@@ -19,6 +19,7 @@ The purpose of this project was to collect, analyze, and model the 1.9 million w
   * Total interactions (upvotes + downvotes)
   * Interaction polarity (how negative or positive it was voted)
   * Days featured (if it was featured on home page)
+  * Dummy variables (each column indicating one of top 100 hashtags used)
   
 * **Exploratory data analysis:** To begin to understand the distributions of each input variable and their relationships, I spent some time analyzing this data. More to come on this later.
 
