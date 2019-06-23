@@ -6,7 +6,7 @@ The purpose of this project was to collect, analyze, and model the 1.9 million w
 
 * **Data Parsing and Cleaning:** Once the HTML data was stored in a collection of pickle files, each one was parsed to strip out only the information necessary for this project, which includes: word, definition, author, post date, hashtags and other metadata. The parsed data is then combined into one .csv to easily open and manipulate. Rows with strange values and nulls are removed.
 
-* **Feature Engineering:** In order to begin modeling the data, I created several features that could be useful in understanding relationships between variables and to ultimate answer the question of what makes one word more popular than another. Some features that were explored:
+* **Feature Engineering:** In order to begin modeling the data, I created several features that could be useful in understanding relationships between variables and to ultimately answer the question of what makes one word more popular than another. Some features that were explored:
   * Length of definition
   * Length of example
   * Posts by author
@@ -15,11 +15,12 @@ The purpose of this project was to collect, analyze, and model the 1.9 million w
   * Probability of word containing profanity
   * Probability of definition containing profanity
   * Probability of example containing profanity
-  * Combined popularity score of all hashtags used
+  * NLTK columns: nouns, verbs, adjective counts for word, definition, and example
+  * Popularity score of hashtags used
   * Total interactions (upvotes + downvotes)
   * Interaction polarity (how negative or positive it was voted)
   * Days featured (if it was featured on home page)
-  * Dummy variables (each column indicating one of top 100 hashtags used)
+  * Encoded variables (each column indicating one of top 100 hashtags used)
   
 * **Exploratory data analysis:** To begin to understand the distributions of each input variable and their relationships, I spent some time analyzing this data. More to come on this later.
 
